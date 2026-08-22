@@ -113,8 +113,8 @@ REST_FRAMEWORK = {
 
 # OpenAPI / Swagger Documentation (drf-spectacular)
 SPECTACULAR_SETTINGS = {
-    'TITLE': 'Barber & Care API',
-    'DESCRIPTION': 'Documentação interativa da API RESTful do Barber & Care (Agendamentos, Serviços e Autenticação).',
+    'TITLE': 'AgendaPro API',
+    'DESCRIPTION': 'Documentação interativa da API RESTful do AgendaPro (Agendamentos, Serviços e Autenticação).',
     'VERSION': '1.0.0',
     'SERVE_INCLUDE_SCHEMA': False,
     'COMPONENT_SPLIT_REQUEST': True,

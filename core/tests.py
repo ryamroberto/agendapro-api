@@ -111,7 +111,7 @@ class OpenApiDocumentationTests(TestCase):
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         content = yaml.safe_load(response.content)
         self.assertIn('openapi', content)
-        self.assertEqual(content['info']['title'], 'Barber & Care API')
+        self.assertEqual(content['info']['title'], 'AgendaPro API')
         self.assertEqual(content['info']['version'], '1.0.0')
 
     def test_schema_endpoint_json_format(self):
@@ -123,7 +123,7 @@ class OpenApiDocumentationTests(TestCase):
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         content = json.loads(response.content.decode('utf-8'))
         self.assertIn('openapi', content)
-        self.assertEqual(content['info']['title'], 'Barber & Care API')
+        self.assertEqual(content['info']['title'], 'AgendaPro API')
 
 
     def test_swagger_ui_endpoint_retorna_200_html(self):

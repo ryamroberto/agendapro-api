@@ -1,4 +1,4 @@
-# Barber & Care — Sistema de Agendamento e Gestao de Servicos
+# AgendaPro API — Sistema de Agendamento e Gestao de Servicos
 
 Plataforma para agendamento de servicos em tempo real desenvolvida com Django, Django REST Framework (DRF), autenticacao por sessao (SessionAuthentication com cookies HttpOnly e protecao CSRF) e interface web responsiva com JavaScript nativo.
 
