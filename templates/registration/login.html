@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block title %}Entrar - Barber & Care{% endblock %}
+
+{% block content %}
+<div class="auth-wrapper">
+    <div class="card" style="box-shadow: var(--shadow-lg);">
+        <div style="text-align: center; margin-bottom: var(--space-6);">
+            <div style="font-size: 2.5rem; margin-bottom: var(--space-2);" aria-hidden="true">💈</div>
+            <h1 style="font-size: var(--font-size-xl);">Acessar o Sistema</h1>
+            <p style="font-size: var(--font-size-sm); color: var(--color-text-muted);">Entre com seu usuário e senha para gerenciar seus agendamentos.</p>
+        </div>
+
+        {% if form.errors %}
+            <div class="alert alert-error" role="alert">
+                Usuário ou senha inválidos. Verifique suas credenciais.
+            </div>
+        {% endif %}
+
+        <form method="post" action="{% url 'login' %}" novalidate>
+            {% csrf_token %}
+            
+            <div class="form-group">
+                <label for="id_username">Nome de Usuário</label>
+                <input type="text" name="username" autofocus autocapitalize="none" autocomplete="username" maxlength="150" required id="id_username" class="form-control" placeholder="Digite seu usuário">
+            </div>
+
+            <div class="form-group">
+                <label for="id_password">Senha</label>
+                <input type="password" name="password" autocomplete="current-password" required id="id_password" class="form-control" placeholder="Digite sua senha">
+            </div>
+
+            <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: var(--space-3); font-size: var(--font-size-base);">
+                Entrar na Conta
+            </button>
+        </form>
+    </div>
+</div>
+{% endblock %}

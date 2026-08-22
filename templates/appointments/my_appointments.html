@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Meus Agendamentos - Barber & Care{% endblock %}
+
+{% block content %}
+<div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--space-6); flex-wrap: wrap; gap: var(--space-4);">
+    <div>
+        <h1>Meus Agendamentos</h1>
+        <p>Acompanhe o status e histórico dos seus serviços agendados.</p>
+    </div>
+    <a href="/" class="btn btn-primary">+ Novo Agendamento</a>
+</div>
+
+<div id="appointments-alert" class="alert" style="display: none;" role="alert"></div>
+
+<section class="card" aria-label="Histórico de Agendamentos">
+    <div id="appointments-list">
+        <p style="color: var(--color-text-muted);">Carregando seus agendamentos...</p>
+    </div>
+</section>
+{% endblock %}
+
+{% block extra_js %}
+<script src="{% static 'js/my_appointments.js' %}"></script>
+{% endblock %}

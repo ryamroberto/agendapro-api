@@ -1,0 +1,39 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+.venv/
+ENV/
+
+# Django
+*.log
+local_settings.py
+db.sqlite3
+db.sqlite3-journal
+media/
+staticfiles/
+
+# IDEs & OS
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+
+# Configurações locais e agentes — não publicar no GitHub
+/.agents/
+/.codex/
+/squads/
+/AGENTS.md
+/GEMINI.md
+/respostas.md
+
+# Variáveis de ambiente e segredos
+.env
+.env.*
+!.env.example

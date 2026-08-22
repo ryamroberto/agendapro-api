@@ -1,0 +1,61 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Barber & Care - Agendamento Online{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    {% block extra_head %}{% endblock %}
+</head>
+<body>
+    {# Token CSRF para garantir o cookie csrftoken antes das chamadas fetch #}
+    <div style="display: none;" aria-hidden="true">
+        {% csrf_token %}
+    </div>
+
+    <header class="navbar" role="banner">
+        <a href="/" class="navbar-brand" aria-label="Página Inicial Barber & Care">
+            <span>💈</span> Barber & Care
+        </a>
+        
+        <nav role="navigation" aria-label="Menu Principal">
+            <ul class="navbar-nav">
+                {% if user.is_authenticated %}
+                    {% if user.is_staff %}
+                        <li><a href="{% url 'appointments:staff_agenda' %}">📅 Agenda do Prestador</a></li>
+                        <li><a href="/admin/">⚙️ Painel Admin</a></li>
+                        <li><span class="user-badge badge-staff">👤 Staff: {{ user.username }}</span></li>
+                    {% else %}
+                        <li><a href="/">🗓️ Agendar Serviço</a></li>
+                        <li><a href="{% url 'appointments:my_appointments' %}">📋 Meus Agendamentos</a></li>
+                        <li><span class="user-badge">👤 Olá, {{ user.first_name|default:user.username }}</span></li>
+                    {% endif %}
+                    
+                    <li>
+                        {# Logout via método POST seguro #}
+                        <form method="post" action="{% url 'logout' %}" style="display: inline;">
+                            {% csrf_token %}
+                            <button type="submit" class="btn-link" aria-label="Encerrar Sessão">Sair</button>
+                        </form>
+                    </li>
+                {% else %}
+                    <li><a href="{% url 'login' %}">Entrar</a></li>
+                {% endif %}
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container" id="main-content" role="main">
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer style="text-align: center; padding: var(--space-8) var(--space-4); color: var(--color-text-light); font-size: var(--font-size-xs);" role="contentinfo">
+        Barber & Care &bull; Sistema de Gestão e Agendamento &bull; Django & DRF
+    </footer>
+
+    {# Script utilitário CSRF para fetch #}
+    <script src="{% static 'js/csrf.js' %}"></script>
+    {% block extra_js %}{% endblock %}
+</body>
+</html>

@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Agenda do Prestador - Barber & Care{% endblock %}
+
+{% block content %}
+<div style="margin-bottom: var(--space-6);">
+    <h1>Painel da Agenda</h1>
+    <p>Gestão diária de atendimentos e transição de status dos clientes.</p>
+</div>
+
+<div id="agenda-alert" class="alert" style="display: none;" role="alert"></div>
+
+<!-- Toolbar de Filtros -->
+<section class="card" aria-label="Filtros da Agenda">
+    <h2 style="font-size: var(--font-size-base); margin-bottom: var(--space-3);">Filtrar Atendimentos</h2>
+    
+    <div class="filter-toolbar">
+        <div class="form-group" style="margin-bottom: 0;">
+            <label for="filter-date" style="font-size: var(--font-size-xs); color: var(--color-text-muted);">Data Específica</label>
+            <input type="date" id="filter-date" class="form-control" style="max-width: 220px;">
+        </div>
+        <button id="btn-filter-date" class="btn btn-primary btn-sm">Filtrar por Data</button>
+        <button id="btn-clear-filter" class="btn btn-outline btn-sm">Ver Todos</button>
+    </div>
+</section>
+
+<!-- Lista de Atendimentos -->
+<section class="card" aria-label="Lista de Atendimentos">
+    <div id="agenda-list">
+        <p style="color: var(--color-text-muted);">Carregando atendimentos...</p>
+    </div>
+</section>
+{% endblock %}
+
+{% block extra_js %}
+<script src="{% static 'js/staff_agenda.js' %}"></script>
+{% endblock %}

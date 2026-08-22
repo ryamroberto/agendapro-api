@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Agendar Atendimento - Barber & Care{% endblock %}
+
+{% block content %}
+<div style="margin-bottom: var(--space-6);">
+    <h1>Agendar Atendimento</h1>
+    <p>Selecione o serviço desejado, a data e um horário de início disponível.</p>
+</div>
+
+<div id="booking-alert" class="alert" style="display: none;" role="alert"></div>
+
+<!-- Etapa 1: Seleção de Serviço -->
+<section class="card" aria-labelledby="step-1-title">
+    <div class="card-header-step">
+        <span class="step-indicator" aria-hidden="true">1</span>
+        <h2 id="step-1-title" class="card-title" style="margin-bottom: 0;">Escolha o Serviço</h2>
+    </div>
+    
+    <div id="services-container" class="services-grid" role="radiogroup" aria-label="Lista de serviços disponíveis">
+        <p style="color: var(--color-text-muted);">Carregando catálogo de serviços...</p>
+    </div>
+</section>
+
+<!-- Etapa 2: Data e Horários -->
+<section class="card" aria-labelledby="step-2-title">
+    <div class="card-header-step">
+        <span class="step-indicator" aria-hidden="true">2</span>
+        <h2 id="step-2-title" class="card-title" style="margin-bottom: 0;">Escolha a Data e o Horário</h2>
+    </div>
+    
+    <div class="form-group" style="max-width: 280px;">
+        <label for="appointment-date">Data do Atendimento (Segunda a Sexta)</label>
+        <input type="date" id="appointment-date" class="form-control">
+    </div>
+
+    <div style="margin-top: var(--space-4);">
+        <label style="font-size: var(--font-size-sm); font-weight: var(--font-weight-semibold); display: block; margin-bottom: var(--space-2);">
+            Horários Disponíveis (Início das 09:00 às 17:00)
+        </label>
+        <div id="slots-container" class="slots-grid" role="group" aria-label="Horários disponíveis"></div>
+        <p id="slots-message" style="color: var(--color-text-muted); font-size: var(--font-size-sm); margin-top: var(--space-2);"></p>
+    </div>
+</section>
+
+<!-- Etapa 3: Observações e Confirmação -->
+<section class="card" aria-labelledby="step-3-title">
+    <div class="card-header-step">
+        <span class="step-indicator" aria-hidden="true">3</span>
+        <h2 id="step-3-title" class="card-title" style="margin-bottom: 0;">Observações e Confirmação</h2>
+    </div>
+    
+    <div class="form-group">
+        <label for="appointment-notes">Observações Adicionais (opcional)</label>
+        <textarea id="appointment-notes" class="form-control" rows="3" placeholder="Ex: Alguma preferência ou observação para o seu atendimento..."></textarea>
+    </div>
+
+    <button id="submit-booking-btn" class="btn btn-primary" style="width: 100%; font-size: var(--font-size-base); padding: var(--space-3);" disabled>
+        Confirmar Agendamento
+    </button>
+</section>
+{% endblock %}
+
+{% block extra_js %}
+<script src="{% static 'js/booking.js' %}"></script>
+{% endblock %}
