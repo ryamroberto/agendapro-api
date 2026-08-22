@@ -4,20 +4,6 @@ Plataforma para agendamento de servicos em tempo real desenvolvida com Django, D
 
 ---
 
-## Demonstracao da Interface (Screenshots)
-
-> Nota: As imagens abaixo sao reservadas para capturas de tela da aplicacao em execucao local.
-
-| Tela de Agendamento (Cliente) | Painel da Agenda (Prestador / Staff) |
-| :---: | :---: |
-| *(Placeholder: captura de tela de `book.html`)* | *(Placeholder: captura de tela de `staff_agenda.html`)* |
-
-| Meus Agendamentos (Historico) | Tela de Autenticacao (Login) |
-| :---: | :---: |
-| *(Placeholder: captura de tela de `my_appointments.html`)* | *(Placeholder: captura de tela de `login.html`)* |
-
----
-
 ## Arquitetura e Decisoes Tecnicas
 
 O projeto adota a arquitetura monolitica integrada, combinando renderizacao no servidor (Django Templates) com consumo de endpoints da REST API:
